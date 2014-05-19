@@ -6,7 +6,8 @@
             [clojure.string :as string]
             [robert.hooke :as hooke]
             [leiningen.deps :as deps]
-            [leiningen.core.project :as lein-project]))
+            [leiningen.core.project :as lein-project]
+            [leiningen.core.main :as lein-main]))
 
 ;; Why, you might ask, are we using str here instead of simply def'ing
 ;; the var to a string directly? The answer is that we are working
@@ -205,9 +206,16 @@
         (println "Could not read git-dep's project:" dep-proj-path)
         project))))
 
+(defn- running-lein-version?
+  [project]
+  (when-let [[task-name & _] *command-line-args*]
+    (= (lein-main/lookup-alias task-name project) "version")))
+
 (defn middleware
   "Called by leiningen via lein-git-deps.plugin/middleware."
   [project]
-  (let [deps (git-dependencies project)]
-    (doseq [dep deps] (setup-git-repo dep))
-    (reduce add-source-paths (reduce add-dependencies project deps) deps)))
+  (when-not (running-lein-version? project)
+    (let [deps (git-dependencies project)]
+      (doseq [dep deps]
+        (setup-git-repo dep))
+      (reduce add-source-paths (reduce add-dependencies project deps) deps))))
