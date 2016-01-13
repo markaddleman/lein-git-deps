@@ -10,27 +10,24 @@ Original code extracted from the excellent ClojureScript One Project:
 
 ## Usage
 
-Dependencies should be listed in project.clj under the ":git-dependencies" key
-
-Dependencies can be provided as:
+Dependencies should be listed in project.clj under the ``:git-dependencies`` key. They can be provided as:
 
  * url
- * url & any param applicable for 'git checkout', like a commit id or a branch name.
+ * url & any param applicable for ``git checkout``, like a commit id or a branch name.
  * url, commit, and a map of options
 
-
-Update your ``project.clj``:
+You will also need to include the plugin in your ``project.clj``
 
 ```clojure
-:plugins [[lein-git-deps "0.0.2"]]
+:plugins [[lein-git-deps "0.0.3"]]
 :git-dependencies [["https://github.com/you/cool-hack.git"]]
 ```
 
 ### Emacs / clojure-jack-in
 
-For Emacs users, using `M-x clojure-jack-in` does not currently
+For Emacs users, using ``M-x clojure-jack-in`` does not currently
 download the Git dependencies as it does normal dependencies. You must
-manually run `lein git-deps` from the command line in your project
+manually run ``lein git-deps`` from the command line in your project
 directory to get the Git dependencies installed.
 
 
@@ -48,7 +45,7 @@ project has a slow release cycle.
 In the case where pushing an updated version of the mainline release
 is not possible, fork the project and package up your own
 release. Then, you can either deploy it on your local system with
-`lein install`, create a private Maven repository and publish it
+``lein install``, create a private Maven repository and publish it
 there, or publish it to Clojars with a different group-id.
 
 Detailed instructions on how to do these things can be found at
