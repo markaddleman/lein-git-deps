@@ -56,10 +56,12 @@ Detailed instructions on how to do these things can be found at
 
 ## License
 
+<pre>
 Copyright &copy; 2012 Toby Hede
 Copyright &copy; 2012 Brenton Ashworth and Relevance, Inc
 Copyright &copy; 2015 Torsten Becker
 Copyright &copy; 2016 Duncan McGreggor
+</pre>
 
 Distributed under the Eclipse Public License, the same as Clojure uses. See the file LICENSE.
 
