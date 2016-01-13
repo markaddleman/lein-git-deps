@@ -2,12 +2,6 @@
 
 *A Leiningen task that will pull dependencies in via git*
 
-Original code extracted from the excellent ClojureScript One Project:
-
-* https://github.com/brentonashworth/one
-* https://github.com/brentonashworth/one/blob/master/src/leiningen/git_deps.clj
-
-
 ## Usage
 
 Dependencies should be listed in project.clj under the ``:git-dependencies`` key. They can be provided as:
@@ -50,6 +44,19 @@ there, or publish it to Clojars with a different group-id.
 
 Detailed instructions on how to do these things can be found at
 [https://github.com/technomancy/leiningen/blob/stable/doc/DEPLOY.md](https://github.com/technomancy/leiningen/blob/stable/doc/DEPLOY.md).
+
+## Background
+
+Original code extracted from the excellent ClojureScript One Project:
+
+* https://github.com/brentonashworth/one
+* https://github.com/brentonashworth/one/blob/master/src/leiningen/git_deps.clj
+
+This version was forked and updated from the following:
+
+* [https://github.com/torsten/lein-git-deps](https://github.com/torsten/lein-git-deps), which in turn was forked from the following (original) repo:
+* [https://github.com/tobyhede/lein-git-deps](https://github.com/tobyhede/lein-git-deps)
+
 
 ## License
 
