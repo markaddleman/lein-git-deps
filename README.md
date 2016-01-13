@@ -26,16 +26,15 @@ Update your ``project.clj``:
 :git-dependencies [["https://github.com/you/cool-hack.git"]]
 ```
 
-Emacs / clojure-jack-in
------------------------
+### Emacs / clojure-jack-in
 
 For Emacs users, using `M-x clojure-jack-in` does not currently
 download the Git dependencies as it does normal dependencies. You must
 manually run `lein git-deps` from the command line in your project
 directory to get the Git dependencies installed.
 
-Deploying your own fork
------------------------
+
+### Deploying your own fork
 
 Using Git-based dependencies is rather fragile and only really
 suitable for development. The code you're pulling from GitHub can
