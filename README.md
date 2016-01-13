@@ -1,15 +1,14 @@
-lein-git-deps
-============
+# lein-git-deps
 
-A Leiningen task that will pull dependencies in via git.
+*A Leiningen task that will pull dependencies in via git*
 
 Original code extracted from the excellent ClojureScript One Project:
 
-https://github.com/brentonashworth/one
-https://github.com/brentonashworth/one/blob/master/src/leiningen/git_deps.clj
+* https://github.com/brentonashworth/one
+* https://github.com/brentonashworth/one/blob/master/src/leiningen/git_deps.clj
 
-Usage
-====
+
+## Usage
 
 Dependencies should be listed in project.clj under the ":git-dependencies" key
 
@@ -20,31 +19,11 @@ Dependencies can be provided as:
  * url, commit, and a map of options
 
 
-To get the system to play nice with leiningen, you will need to add
-lein-git-deps as a dev-dependency, specify your git-dependencies, and
-then add the Git-sourced code to to the classpath:
-
-```clojure
-:dev-dependencies [[lein-git-deps "0.0.2"]]
-:git-dependencies [["https://github.com/tobyhede/monger.git"]]
-```
-
-You will also need to manually add the checked-out project's
-dependencies as your own (the plugin simply checks out the code, it
-doesn't recursively resolve dependencies).
-
-Leiningen 2
------------
-
-If you're using Leiningen 2, the setup is slightly different. You must
-use the `:plugins` key rather than `:dev-dependencies`, and the
-`:extra-classpath-dirs` setting is no longer supported. As a
-workaround, you can add your library's source directory with
-`:source-paths`:
+Update your ``project.clj``:
 
 ```clojure
 :plugins [[lein-git-deps "0.0.2"]]
-:git-dependencies [["https://github.com/tobyhede/monger.git"]]
+:git-dependencies [["https://github.com/you/cool-hack.git"]]
 ```
 
 Emacs / clojure-jack-in
@@ -78,9 +57,10 @@ Detailed instructions on how to do these things can be found at
 
 ## License
 
-Copyright (C) 2012 Toby Hede
-
-Copyright (C) 2012 Brenton Ashworth and Relevance, Inc
+Copyright &copy; 2012 Toby Hede
+Copyright &copy; 2012 Brenton Ashworth and Relevance, Inc
+Copyright &copy; 2015 Torsten Becker
+Copyright &copy; 2016 Duncan McGreggor
 
 Distributed under the Eclipse Public License, the same as Clojure uses. See the file LICENSE.
 
