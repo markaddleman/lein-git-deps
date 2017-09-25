@@ -13,7 +13,7 @@ Dependencies should be listed in project.clj under the ``:git-dependencies`` key
 You will also need to include the plugin in your ``project.clj``
 
 ```clojure
-:plugins [[lein-git-deps "0.0.3"]]
+:plugins [[lein-git-deps "0.0.4"]]
 :git-dependencies [["https://github.com/you/cool-hack.git"]]
 ```
 
@@ -54,6 +54,7 @@ Original code extracted from the excellent ClojureScript One Project:
 
 This version was forked and updated from the following:
 
+* [https://github.com/oubiwann/lein-git-deps](https://github.com/oubiwann/lein-git-deps), that come from:
 * [https://github.com/torsten/lein-git-deps](https://github.com/torsten/lein-git-deps), which in turn was forked from the following (original) repo:
 * [https://github.com/tobyhede/lein-git-deps](https://github.com/tobyhede/lein-git-deps)
 
@@ -68,4 +69,3 @@ Copyright &copy; 2016 Duncan McGreggor
 </pre>
 
 Distributed under the Eclipse Public License, the same as Clojure uses. See the file LICENSE.
-
