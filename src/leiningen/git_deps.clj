@@ -101,7 +101,7 @@
   "Return a map of the project's git dependencies."
   [project]
   (map (fn [dep]
-      (let [[dep-url commit {clone-dir-name :dir src :src}] dep
+      (let [[dep-url commit {clone-dir-name :dir src :src root-dir :root}] dep
             commit (or commit "master")
             clone-dir-name (or clone-dir-name (default-clone-dir dep-url))
             clone-dir (io/file git-deps-dir clone-dir-name)
@@ -111,6 +111,7 @@
          :commit commit
          :clone-dir-name clone-dir-name
          :clone-dir clone-dir
+         :root-dir root-dir
          :src src}))
     (:git-dependencies project)))
 
