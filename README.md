@@ -19,9 +19,9 @@ You will also need to include the plugin in your ``project.clj``
 
 ### Options
 
-**dir** -> Directory where the project will be cloned
-**root** -> The relative path from the project where ```project.clj``` is located
-**src** -> Default source relative path
+* **dir** -> Directory where the project will be cloned
+* **root** -> The relative path from the project where ```project.clj``` is located
+* **src** -> Default source relative path
 
 ### Emacs / clojure-jack-in
 
