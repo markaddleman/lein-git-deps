@@ -187,18 +187,23 @@
                                 (apply task args)
                                 (git-deps (first args)))))
 
+(defn- abs-path
+  "Return the absolute path concatenated with additional values"
+  [base & additional]
+  (string/join "/" (cons (.getAbsolutePath base) (filter not-empty additional))))
+
 (defn- add-source-paths
   "Given a project and a dependency map (dep), adds the dependency's
   soure-path to the main project"
   [project dep]
-  (let [dep-src (-> dep :clone-dir .getAbsolutePath (str "/" (:src dep)))]
+  (let [dep-src (abs-path (:clone-dir dep) (:root-dir dep) (:src dep))]
     (update-in project [:source-paths] conj dep-src)))
 
 (defn- add-dependencies
   "Given a project and a dependency map (dep), adds all of the dependency's
   dependencies to the main project."
   [project dep]
-  (let [dep-proj-path (-> dep :clone-dir .getAbsolutePath (str "/project.clj"))]
+  (let [dep-proj-path (abs-path (:clone-dir dep) (:root-dir dep) "project.clj")]
     (try
       (let [dep-proj (lein-project/read dep-proj-path)
             dep-deps (:dependencies dep-proj)]
