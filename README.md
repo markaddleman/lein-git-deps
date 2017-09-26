@@ -17,6 +17,12 @@ You will also need to include the plugin in your ``project.clj``
 :git-dependencies [["https://github.com/you/cool-hack.git"]]
 ```
 
+### Options
+
+**dir** -> Directory where the project will be cloned
+**root** -> The relative path from the project where ```project.clj``` is located
+**src** -> Default source relative path
+
 ### Emacs / clojure-jack-in
 
 For Emacs users, using ``M-x clojure-jack-in`` does not currently
