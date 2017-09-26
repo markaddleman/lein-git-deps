@@ -172,6 +172,7 @@
                        [\"https://github.com/foo/quux.git\"
                         \"some-branch\"
                         {:dir \"alternate-directory-to-clone-to\"
+                         :root \"root-directory-of-cloned-repo\"
                          :src \"alternate-src-directory-within-repo\"}]]
 "
   [project]
