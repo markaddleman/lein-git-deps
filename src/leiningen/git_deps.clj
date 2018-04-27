@@ -79,7 +79,10 @@
         current-branch (first (filter #(.startsWith % "*") lines))]
     (when-not current-branch
       (throw (Exception. "Unable to determine current branch")))
-    (or (= current-branch "* (no branch)") (.startsWith current-branch "* (detached"))))
+    (or
+      (= current-branch "* (no branch)")
+      (.startsWith current-branch "* (detached")
+      (.startsWith current-branch "* (HEAD detached"))))
 
 (defn- git-pull
   "Run 'git-pull' in directory dir, but only if we're on a branch. If
@@ -101,18 +104,18 @@
   "Return a map of the project's git dependencies."
   [project]
   (map (fn [dep]
-      (let [[dep-url commit {clone-dir-name :dir src :src root-dir :root}] dep
-            commit (or commit "master")
-            clone-dir-name (or clone-dir-name (default-clone-dir dep-url))
-            clone-dir (io/file git-deps-dir clone-dir-name)
-            src (or src "src")]
-        {:dep dep
-         :dep-url dep-url
-         :commit commit
-         :clone-dir-name clone-dir-name
-         :clone-dir clone-dir
-         :root-dir root-dir
-         :src src}))
+        (let [[dep-url commit {clone-dir-name :dir src :src root-dir :root}] dep
+              commit (or commit "master")
+              clone-dir-name (or clone-dir-name (default-clone-dir dep-url))
+              clone-dir (io/file git-deps-dir clone-dir-name)
+              src (or src "src")]
+          {:dep dep
+           :dep-url dep-url
+           :commit commit
+           :clone-dir-name clone-dir-name
+           :clone-dir clone-dir
+           :root-dir root-dir
+           :src src}))
     (:git-dependencies project)))
 
 (defn- needs-update?
